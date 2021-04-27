@@ -22,7 +22,17 @@ export default function BottomTabNavigator() {
             headerTintColor: Platform.OS === 'android' ? 'white' : Color.titleColor
           }}
         />
-        <Stack.Screen name="CategoryMeal" component={CategoryMealsScreen} />
+        <Stack.Screen 
+          name="CategoryMeal" 
+          component={CategoryMealsScreen} 
+          options={({ route }) => ({ 
+            title: route.params?.title,
+            headerStyle:{
+              backgroundColor:Platform.OS === 'android' ? Color.primaryColor : 'white'
+            },
+            headerTintColor: Platform.OS === 'android' ? 'white' : Color.titleColor
+          })}
+          />
         <Stack.Screen name="MealDetail" component={MealDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
